@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/FoodAndHealth/static/css/main.411a31bb.css",
+    "main.css": "/FoodAndHealth/static/css/main.5973d16b.css",
     "main.js": "/FoodAndHealth/static/js/main.b955feaa.js",
     "static/js/787.6907a3d9.chunk.js": "/FoodAndHealth/static/js/787.6907a3d9.chunk.js",
     "static/media/mi3.jpg": "/FoodAndHealth/static/media/mi3.4b1d60287f68efebac80.jpg",
     "static/media/mi1.jpg": "/FoodAndHealth/static/media/mi1.51cdf53705c2cbe1b050.jpg",
     "static/media/mi2.jpg": "/FoodAndHealth/static/media/mi2.9c6098023d397454c19f.jpg",
     "index.html": "/FoodAndHealth/index.html",
-    "main.411a31bb.css.map": "/FoodAndHealth/static/css/main.411a31bb.css.map",
+    "main.5973d16b.css.map": "/FoodAndHealth/static/css/main.5973d16b.css.map",
     "main.b955feaa.js.map": "/FoodAndHealth/static/js/main.b955feaa.js.map",
     "787.6907a3d9.chunk.js.map": "/FoodAndHealth/static/js/787.6907a3d9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.411a31bb.css",
+    "static/css/main.5973d16b.css",
     "static/js/main.b955feaa.js"
   ]
 }
