@@ -14,9 +14,10 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 import './App.css';
+import MiComponent from "./miComponent";
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = ['Home',"Food","Health", 'About', 'Contact'];
 
 function App(props) {
   const { window } = props;
@@ -28,9 +29,12 @@ function App(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
+        <Typography
+            component="div"
+            sx={{my: 2 ,fontSize:"18px",fontWeight:600,letterSpacing: "1.5px",color:"green" }}
+          >
+            <span style={{fontSize:"18px",color:"orange"}}>F</span>ood <div style={{transform: "rotate(-25deg)",margin: "0px 3px"}}><span className='logoAnd' data-char="&">&</span></div> <span style={{fontSize:"18px",color:"orange"}}>H</span>ealth
+          </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -48,7 +52,7 @@ function App(props) {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar component="nav">
+      <AppBar component="nav" sx={{boxShadow:"none"}}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -60,15 +64,14 @@ function App(props) {
             <MenuIcon />
           </IconButton>
           <Typography
-            variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            sx={{ flexGrow: 1, display: {xs: 'flex' },fontSize:"18px",fontWeight:600,letterSpacing: "1.5px",color:"green" }}
           >
-            MUI
+            <span style={{fontSize:"18px",color:"orange"}}>F</span>ood <div style={{transform: "rotate(-25deg)",margin: "0px 3px"}}><span className='logoAnd' data-char="&">&</span></div> <span style={{fontSize:"18px",color:"orange"}}>H</span>ealth
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
+              <Button key={item} sx={{ color: '#767676' }}>
                 {item}
               </Button>
             ))}
@@ -92,11 +95,11 @@ function App(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ p: 3 }}>
+      <Box component="main" >
         <Toolbar />
-        <Typography>
-          Hellow world...
-        </Typography>
+        <Box className="miStyle" sx={{display:"flex",justifyContent:"center",width:"100vw",height:"30vh"}} >
+        <MiComponent></MiComponent>
+        </Box>
       </Box>
     </Box>
   );

@@ -1,0 +1,30 @@
+/* logo */
+.logoAnd {
+    position: relative;
+}
+
+.logoAnd:before {
+    content: attr(data-char);
+    position: absolute;
+    width: 40%;
+    overflow: hidden;
+    color: orange;
+}
+
+/* carousel */
+@media screen and (min-width: 600px) {
+.miStyle{
+    height: 65vh !important;
+}
+}
+
+.carousel-root{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.carousel-slider{
+    height: 100% !important;
+    width: 80% !important;
+}
