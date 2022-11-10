@@ -13,18 +13,75 @@
 
 /* carousel */
 @media screen and (min-width: 600px) {
-.miStyle{
-    height: 65vh !important;
-}
+    .miStyle {
+        height: 50vh !important;
+    }
 }
 
-.carousel-root{
+.carousel-root {
     display: flex;
     justify-content: center;
     height: 100%;
     width: 100%;
 }
-.carousel-slider{
+
+.carousel-slider {
     height: 100% !important;
     width: 80% !important;
+}
+
+/* scrollbar style */
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(225, 225, 225);
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(225, 225, 225);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(163, 163, 163);
+}
+
+/* dashboard container */
+.dashboardContainer {
+    margin: 20px 150px;
+    margin-top: 100px;
+}
+
+@media screen and (max-width: 600px) {
+    .dashboardContainer {
+        margin: 20px;
+        margin-top: 85px;
+        justify-content: center;
+        display: flex;
+    }
+}
+
+/* card container */
+.cardItem {
+    margin-bottom: 40px !important;
+    margin-right: 40px !important;
+    min-width: 30%;
+    max-width: 30%;
+}
+
+@media screen and (max-width: 600px) {
+    .cardItem {
+        margin-bottom: 30px !important; 
+        min-width: 100% ;
+        max-width: 100% ;
+    }
 }
