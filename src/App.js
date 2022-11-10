@@ -14,10 +14,13 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 import './App.css';
-import MiComponent from "./miComponent";
+import cardDetails from './cardDetails';
+// import MiComponent from "./miComponent";
+import CardComponent from "./cardComponent"
+import { Grid } from '@mui/material';
 
 const drawerWidth = 240;
-const navItems = ['Home',"Food","Health", 'About', 'Contact'];
+const navItems = ['Home', "Food", "Health", 'About', 'Contact'];
 
 function App(props) {
   const { window } = props;
@@ -29,12 +32,12 @@ function App(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-        <Typography
-            component="div"
-            sx={{my: 2 ,fontSize:"18px",fontWeight:600,letterSpacing: "1.5px",color:"green" }}
-          >
-            <span style={{fontSize:"18px",color:"orange"}}>F</span>ood <div style={{transform: "rotate(-25deg)",margin: "0px 3px"}}><span className='logoAnd' data-char="&">&</span></div> <span style={{fontSize:"18px",color:"orange"}}>H</span>ealth
-          </Typography>
+      <Typography
+        component="div"
+        sx={{ my: 2, fontSize: "18px", fontWeight: 600, letterSpacing: "1.5px", color: "green" }}
+      >
+        <span style={{ fontSize: "18px", color: "orange" }}>F</span>ood <div style={{ transform: "rotate(-25deg)", margin: "0px 3px" }}><span className='logoAnd' data-char="&">&</span></div> <span style={{ fontSize: "18px", color: "orange" }}>H</span>ealth
+      </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -52,7 +55,7 @@ function App(props) {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar component="nav" sx={{boxShadow:"none"}}>
+      <AppBar component="nav" >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -65,9 +68,9 @@ function App(props) {
           </IconButton>
           <Typography
             component="div"
-            sx={{ flexGrow: 1, display: {xs: 'flex' },fontSize:"18px",fontWeight:600,letterSpacing: "1.5px",color:"green" }}
+            sx={{ flexGrow: 1, display: { xs: 'flex' }, fontSize: "18px", fontWeight: 600, letterSpacing: "1.5px", color: "green" }}
           >
-            <span style={{fontSize:"18px",color:"orange"}}>F</span>ood <div style={{transform: "rotate(-25deg)",margin: "0px 3px"}}><span className='logoAnd' data-char="&">&</span></div> <span style={{fontSize:"18px",color:"orange"}}>H</span>ealth
+            <span style={{ fontSize: "18px", color: "orange" }}>F</span>ood <div style={{ transform: "rotate(-25deg)", margin: "0px 3px" }}><span className='logoAnd' data-char="&">&</span></div> <span style={{ fontSize: "18px", color: "orange" }}>H</span>ealth
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
@@ -95,11 +98,22 @@ function App(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" >
-        <Toolbar />
-        <Box className="miStyle" sx={{display:"flex",justifyContent:"center",width:"100vw",height:"30vh"}} >
+      <Box component="main" className="dashboardContainer" sx={{ width: "100%" }}>
+        <Toolbar style={{ position: "absolute" }} />
+        {/* <Box className="miStyle" sx={{display:"flex",justifyContent:"center",width:"100vw",height:"30vh"}} >
         <MiComponent></MiComponent>
         </Box>
+          <Grid item xs={12} md={6} lg={4}>
+          <CardComponent></CardComponent>
+          </Grid> */}
+        <Grid className='cardContainer' style={{ minWidth: "100%" }} container >
+
+          {cardDetails.map((val, idx) =>
+            <Grid item className='cardItem' >
+              <CardComponent id={idx} img={val.img} heading={val.heading} subHeading={val.subHeading}></CardComponent>
+            </Grid>)}
+
+        </Grid>
       </Box>
     </Box>
   );
