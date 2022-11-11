@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/FoodAndHealth/static/css/main.fc1449dc.css",
-    "main.js": "/FoodAndHealth/static/js/main.87e0bb00.js",
+    "main.css": "/FoodAndHealth/static/css/main.15b8e34c.css",
+    "main.js": "/FoodAndHealth/static/js/main.72fe4d6c.js",
     "static/js/787.6907a3d9.chunk.js": "/FoodAndHealth/static/js/787.6907a3d9.chunk.js",
     "static/media/mi1.jpg": "/FoodAndHealth/static/media/mi1.51cdf53705c2cbe1b050.jpg",
     "static/media/mi2.jpg": "/FoodAndHealth/static/media/mi2.9c6098023d397454c19f.jpg",
     "index.html": "/FoodAndHealth/index.html",
-    "main.fc1449dc.css.map": "/FoodAndHealth/static/css/main.fc1449dc.css.map",
-    "main.87e0bb00.js.map": "/FoodAndHealth/static/js/main.87e0bb00.js.map",
+    "main.15b8e34c.css.map": "/FoodAndHealth/static/css/main.15b8e34c.css.map",
+    "main.72fe4d6c.js.map": "/FoodAndHealth/static/js/main.72fe4d6c.js.map",
     "787.6907a3d9.chunk.js.map": "/FoodAndHealth/static/js/787.6907a3d9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fc1449dc.css",
-    "static/js/main.87e0bb00.js"
+    "static/css/main.15b8e34c.css",
+    "static/js/main.72fe4d6c.js"
   ]
 }
