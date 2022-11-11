@@ -21,7 +21,7 @@ import BlogContent from "./blogContent"
 
 import { Grid } from '@mui/material';
 import Dashboard from './dashboard';
-
+import { Link } from "react-router-dom";
 const drawerWidth = 240;
 const navItems = ['Home', "Food", "Health", 'About', 'Contact'];
 
@@ -44,11 +44,13 @@ function App(props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
+          <Link key={item} to="/FoodAndHealth" style={{ textDecoration: "none" }}>
+            <ListItem key={item} disablePadding>
+              <ListItemButton sx={{ textAlign: 'center',color: '#767676' }} >
+                <ListItemText primary={item} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
       </List>
     </Box>
@@ -58,67 +60,70 @@ function App(props) {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar component="nav" >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+      <BrowserRouter>
+        <AppBar component="nav" >
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: 'none' } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              component="div"
+              sx={{ flexGrow: 1, display: { xs: 'flex' }, fontSize: "18px", fontWeight: 600, letterSpacing: "1.5px", color: "green" }}
+            >
+              <span style={{ fontSize: "18px", color: "orange" }}>F</span>ood <div style={{ transform: "rotate(-25deg)", margin: "0px 3px" }}><span className='logoAnd' data-char="&">&</span></div> <span style={{ fontSize: "18px", color: "orange" }}>H</span>ealth
+            </Typography>
+            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+              {navItems.map((item) => (
+                <Link key={item} to="/FoodAndHealth" style={{ textDecoration: "none" }}>
+                  <Button key={item} sx={{ color: '#767676' }}>
+                    {item}
+                  </Button>
+                </Link>
+              ))}
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <Box component="nav">
+          <Drawer
+            container={container}
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+            sx={{
+              display: { xs: 'block', sm: 'none' },
+              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex' }, fontSize: "18px", fontWeight: 600, letterSpacing: "1.5px", color: "green" }}
-          >
-            <span style={{ fontSize: "18px", color: "orange" }}>F</span>ood <div style={{ transform: "rotate(-25deg)", margin: "0px 3px" }}><span className='logoAnd' data-char="&">&</span></div> <span style={{ fontSize: "18px", color: "orange" }}>H</span>ealth
-          </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#767676' }}>
-                {item}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <Box component="nav">
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </Box>
-      <Box component="main" className="dashboardContainer" sx={{ width: "100%" }}>
-        <Toolbar style={{ position: "absolute" }} />
-        {/* <Box className="miStyle" sx={{display:"flex",justifyContent:"center",width:"100vw",height:"30vh"}} >
+            {drawer}
+          </Drawer>
+        </Box>
+        <Box component="main" className="dashboardContainer" sx={{ width: "100%" }}>
+          <Toolbar style={{ position: "absolute" }} />
+          {/* <Box className="miStyle" sx={{display:"flex",justifyContent:"center",width:"100vw",height:"30vh"}} >
         <MiComponent></MiComponent>
         </Box>
           <Grid item xs={12} md={6} lg={4}>
           <CardComponent></CardComponent>
           </Grid> */}
-        <Grid className='cardContainer' style={{ minWidth: "100%" }} container >
-          <BrowserRouter>
+          <Grid className='cardContainer' style={{ minWidth: "100%" }} container >
+
             <Routes>
-            <Route path="/" element={<Dashboard/>}></Route>
-            <Route path="/FoodAndHealth" element={<Dashboard/>}></Route>
-            <Route path="/blogContent" element={<BlogContent/>}></Route>
+              <Route path="/" element={<Dashboard />}></Route>
+              <Route path="/FoodAndHealth" element={<Dashboard />}></Route>
+              <Route path="/blogContent" element={<BlogContent />}></Route>
             </Routes>
-          </BrowserRouter>
-        </Grid>
-      </Box>
+          </Grid>
+        </Box>
+      </BrowserRouter>
     </Box>
   );
 }
