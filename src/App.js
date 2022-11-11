@@ -14,10 +14,13 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 import './App.css';
-import cardDetails from './cardDetails';
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BlogContent from "./blogContent"
 // import MiComponent from "./miComponent";
-import CardComponent from "./cardComponent"
+
 import { Grid } from '@mui/material';
+import Dashboard from './dashboard';
 
 const drawerWidth = 240;
 const navItems = ['Home', "Food", "Health", 'About', 'Contact'];
@@ -107,12 +110,13 @@ function App(props) {
           <CardComponent></CardComponent>
           </Grid> */}
         <Grid className='cardContainer' style={{ minWidth: "100%" }} container >
-
-          {cardDetails.map((val, idx) =>
-            <Grid item className='cardItem' >
-              <CardComponent id={idx} img={val.img} heading={val.heading} subHeading={val.subHeading}></CardComponent>
-            </Grid>)}
-
+          <BrowserRouter>
+            <Routes>
+            <Route path="/" element={<Dashboard/>}></Route>
+            <Route path="/FoodAndHealth" element={<Dashboard/>}></Route>
+            <Route path="/blogContent" element={<BlogContent/>}></Route>
+            </Routes>
+          </BrowserRouter>
         </Grid>
       </Box>
     </Box>
